@@ -66,7 +66,7 @@ body {
   .report-overlay-container {
     display: block !important;
     visibility: visible !important;
-    position: static !important; /* Static allows page breaks to work infinitely */
+    position: static !important;
     width: 100% !important;
     height: auto !important;
     min-height: auto !important;
@@ -87,12 +87,11 @@ body {
     margin: 0 !important;
   }
 
-  /* Document format override for printing: 100% bleed with margin configured by @page */
   .printable-paper-area {
     position: static !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 10mm 5mm !important; /* Perfect printable spacing */
+    padding: 10mm 5mm !important;
     margin: 0 !important;
     box-shadow: none !important;
     border: none !important;
@@ -128,10 +127,10 @@ body {
     top: 0 !important;
     transform: none !important;
     width: 100% !important;
-    max-width: 80mm !important; /* معيار مثالي لطابعات الفواتير الحرارية والـ A4 الصغير */
+    max-width: 80mm !important;
     margin: 0 auto !important;
     box-shadow: none !important;
-    border: none !important; /* إلغاء الحدود المتقطعة لتظهر الفاتورة نظيفة تماماً عند الطباعة */
+    border: none !important;
     border-radius: 0 !important;
     background: #ffffff !important;
     padding: 5mm !important;
@@ -139,4 +138,85 @@ body {
   }
 
   #print-area {
-    border:
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /* DATA GRID / TABLES / REPORT PAGE OPTIMIZATIONS                             */
+  /* -------------------------------------------------------------------------- */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+  }
+
+  thead, tr, th, td {
+    page-break-inside: avoid !important;
+  }
+
+  tr {
+    page-break-after: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  th, td {
+    padding: 8px 10px !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    color: #000000 !important;
+    font-size: 10pt !important;
+  }
+
+  th {
+    background-color: #f3f4f6 !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .grid {
+    display: grid !important;
+  }
+
+  .flex {
+    display: flex !important;
+  }
+
+  .w-24 {
+    width: 96px !important;
+  }
+  .h-24 {
+    height: 96px !important;
+  }
+
+  /* Typography enhancement */
+  h1, h2, h3, h4, h5, h6, strong, b {
+    color: #000000 !important;
+    font-weight: bold !important;
+  }
+
+  p, span, div, li, td {
+    color: #111111 !important;
+  }
+
+  .text-emerald-800, .text-emerald-700, .text-emerald-600 {
+    color: #15803d !important;
+  }
+
+  .bg-emerald-600, .bg-emerald-700 {
+    background-color: #15803d !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .border, .border-dashed {
+    border-color: #cccccc !important;
+  }
+}
